@@ -1,9 +1,6 @@
 <p align="center">
   <a href="https://spartacus-hf.dev">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="docs/images/spartacus-hf-wordmark-white.svg">
-      <img src="docs/images/spartacus-hf-wordmark-glass.svg" width="560" alt="SPARTACUS-HF">
-    </picture>
+    <img src="docs/images/spartacus-hf-wordmark-banner.svg" width="560" alt="SPARTACUS-HF">
   </a>
 </p>
 
