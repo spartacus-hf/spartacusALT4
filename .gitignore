@@ -1,0 +1,10 @@
+# Python caches
+__pycache__/
+*.py[cod]
+
+# Editor and operating-system files
+*.swp
+*~
+.DS_Store
+
+# Build outputs are ignored in firmware/.gitignore

@@ -1,0 +1,494 @@
+{
+  "schema_version": 1,
+  "builds": {
+    "Debug": {
+      "required_by_default": true,
+      "deep_diagnostics": false
+    },
+    "Release-Speed": {
+      "required_by_default": false,
+      "deep_diagnostics": false
+    },
+    "Diagnostic": {
+      "required_by_default": false,
+      "deep_diagnostics": true
+    }
+  },
+  "deep_diagnostic_only": [
+    "render_test_linear",
+    "render_theta_debug",
+    "render_ssb_debug_internal",
+    "render_ssb_raw_legacy",
+    "render_ssb_qmx12_strict",
+    "render_ssb_ext",
+    "render_ssb_enh",
+    "render_ssb_filt",
+    "render_ssb_raw_direct"
+  ],
+  "strict_compile_sources": [
+    "Core/Src/hrtim_phase.c",
+    "Core/Src/fw_update.c",
+    "Core/Src/mod_api_pa.c",
+    "Core/Src/mod_band.c",
+    "Core/Src/mod_crc32.c",
+    "Core/Src/mod_state.c",
+    "Core/Src/mod_storage_format.c",
+    "Core/Src/mod_sd_store.c",
+    "Core/Src/mod_storage_import.c",
+    "Core/Src/mod_transport.c",
+    "Core/Src/mod_transport_logic.c",
+    "Core/Src/modulator.c",
+    "Core/Src/sd_audio_math.c",
+    "Core/Src/sd_audio_player.c",
+    "Core/Src/usbd_msc_if.c",
+    "Core/Src/radio.c",
+    "Core/Src/radio_analog.c",
+    "Core/Src/radio_audio.c",
+    "Core/Src/radio_clocks.c",
+    "Core/Src/radio_config.c",
+    "Core/Src/radio_cw_decoder.c",
+    "Core/Src/mod_cw_keyer.c", "Core/Src/mod_cw_player.c", "Core/Src/cw_pack.c", "Core/Src/mod_morse_tables.c", "Core/Src/mod_morse_trainer.c", "Core/Src/ui_trainer.c",
+    "Core/Src/radio_dsp.c",
+    "Core/Src/radio_pd.c",
+    "Core/Src/radio_pd_policy.c",
+    "Core/Src/radio_pd_port.c",
+    "Core/Src/radio_rx_front.c",
+    "Core/Src/radio_rf_meter.c",
+    "Core/Src/radio_af_fit.c",
+    "Core/Src/radio_af_sweep.c",
+    "Core/Src/radio_bpf_fit.c",
+    "Core/Src/radio_bpf_sweep.c",
+    "Core/Src/radio_iq_fit.c",
+    "Core/Src/radio_rx_cal.c",
+    "Core/Src/radio_spectrum.c",
+    "Core/Src/board_rev1.c",
+    "Core/Src/audio_resample.c",
+    "Core/Src/mod_selftest.c",
+    "Core/Src/mod_selftest_logic.c",
+    "Core/Src/usb_diag.c",
+    "Core/Src/usb_diag_mode.c",
+    "Core/Src/usb_diag_pins.c",
+    "Core/Src/ui_tune.c",
+    "Core/Src/ui_gfx.c"
+  ],
+  "budgets": {
+    "flash_app_max_used": 515000,
+    "ram_min_unallocated": 8192,
+    "ccmram_min_unallocated": 4096,
+    "stack_frame_max": 2048,
+    "stack_realtime_chain_max": 1024,
+    "stack_foreground_chain_max": 4096,
+    "stack_linker_min": 6144,
+    "cyclomatic_function_max": 80
+  },
+  "storage_abi": {
+    "settings_version": 29,
+    "settings_blob_size": 1124,
+    "settings_record_size": 1132,
+    "migration_offsets": {
+      "SETTINGS_V20_LENGTH": 864,
+      "SETTINGS_V26_LENGTH": 1008,
+      "SETTINGS_V27_LENGTH": 1012,
+      "SETTINGS_V28_LENGTH": 1100
+    }
+  },
+  "diagnostic_roots": [
+    "MOD_SelfTestService",
+    "MOD_SelfTestStart",
+    "MOD_SelfTestApply",
+    "MOD_SelfTestExport",
+    "USB_DiagService",
+    "USB_DiagModeEnter"
+  ],
+  "forbidden_diagnostic_symbols": [
+    "service_tx_entry",
+    "BOARD_SetAux",
+    "RADIO_RequestTx",
+    "MOD_TxCarrierTestStart"
+  ],
+  "realtime_usb_class": "AUDIO",
+  "realtime_roots": [
+    "DMA1_Channel1_IRQHandler",
+    "DMA1_Channel2_IRQHandler",
+    "mod_dma_irq_channel1",
+    "mod_dma_irq_channel2",
+    "USB_LP_IRQHandler",
+    "USBD_AUDIO_DataOut",
+    "AUDIO_PeriodicTC_FS",
+    "MOD_SubmitUsbPacket",
+    "PendSV_Handler",
+    "MOD_RealtimeRenderWorker",
+    "mod_tx_pipeline_process_frame",
+    "render_cw",
+    "render_test_linear",
+    "render_tx_carrier_test",
+    "render_theta_debug",
+    "render_ssb_debug_internal",
+    "render_ssb_raw_legacy",
+    "render_ssb_prod",
+    "render_ssb_h12p",
+    "render_ssb_enh",
+    "render_ssb_filt",
+    "render_ssb_raw_direct",
+    "render_ssb_qmx12_strict",
+    "render_ssb_ext",
+    "render_fm",
+    "render_am",
+    "DMA2_Channel1_IRQHandler",
+    "DMA2_Channel2_IRQHandler",
+    "DMA2_Channel3_IRQHandler",
+    "DMA2_Channel4_IRQHandler",
+    "UCPD1_IRQHandler",
+    "SysTick_Handler",
+    "RADIO_AudioWorker",
+    "RADIO_CapturePacket"
+  ],
+  "forbidden_realtime_symbols": [
+    "Error_Handler",
+    "HAL_Delay",
+    "LCDUI_Service",
+    "GFX_Text",
+    "GFX_PrepareLines",
+    "LCDUI_SetRotation",
+    "UI_AppHandle",
+    "MOD_LoadSettings",
+    "MOD_SaveSettings",
+    "SD_AudioDecoderOpen",
+    "SD_AudioDecoderReadS32",
+    "SD_AudioPlayerService",
+    "SD_BrowserRefresh",
+    "SD_ReadBlock",
+    "SD_ServiceBackground",
+    "SD_ViewerRead",
+    "SD_WriteBlock",
+    "UI_AppBuildFrame",
+    "UI_AppServiceDisplay",
+    "calloc",
+    "disk_read",
+    "disk_write",
+    "f_close",
+    "f_lseek",
+    "f_open",
+    "f_opendir",
+    "f_read",
+    "f_readdir",
+    "f_rename",
+    "f_unlink",
+    "f_write",
+    "free",
+    "malloc",
+    "realloc"
+  ],
+  "realtime_stack_roots": [
+    "mod_dma_irq_channel1",
+    "mod_dma_irq_channel2",
+    "MOD_SubmitUsbPacket",
+    "MOD_RealtimeRenderWorker",
+    "render_cw",
+    "render_test_linear",
+    "render_tx_carrier_test",
+    "render_theta_debug",
+    "render_ssb_debug_internal",
+    "render_ssb_raw_legacy",
+    "render_ssb_prod",
+    "render_ssb_h12p",
+    "render_ssb_enh",
+    "render_ssb_filt",
+    "render_ssb_raw_direct",
+    "render_ssb_qmx12_strict",
+    "render_ssb_ext",
+    "render_fm",
+    "render_am",
+    "DMA2_Channel1_IRQHandler",
+    "DMA2_Channel2_IRQHandler",
+    "DMA2_Channel3_IRQHandler",
+    "DMA2_Channel4_IRQHandler",
+    "UCPD1_IRQHandler",
+    "SysTick_Handler",
+    "RADIO_AudioWorker",
+    "RADIO_CapturePacket"
+  ],
+  "foreground_stack_roots": [
+    "main",
+    "MOD_LoadSettings",
+    "MOD_SaveSettings",
+    "SD_AudioPlayerService",
+    "UI_AppBuildFrame"
+  ],
+  "stack_cycle_exemptions": {},
+  "complexity_exempt_prefixes": [
+    "drmp3",
+    "drwav"
+  ],
+  "allowed_realtime_indirect_callers": [
+    "mod_tx_pipeline_process_frame",
+    "USBD_AUDIO_DataOut",
+    "USBD_AUDIO_Notify",
+    "USBD_AUDIO_PrepareOut",
+    "USBD_AUDIO_Init",
+    "USBD_AUDIO_DeInit",
+    "USBD_AUDIO_Setup",
+    "USBD_AUDIO_EP0_RxReady",
+    "USBD_AUDIO_SOF",
+    "USBD_AUDIO_RefillCapture",
+    "USBD_AUDIO_SendFeedback",
+    "USBD_SetClassConfig",
+    "USBD_ClrClassConfig",
+    "USBD_LL_DataInStage",
+    "USBD_LL_DataOutStage",
+    "USBD_LL_Reset",
+    "USBD_LL_SOF",
+    "USBD_StdDevReq",
+    "USBD_StdItfReq",
+    "USBD_StdEPReq",
+    ".text_21@USBPD_PRL_SendMessage",
+    ".text_3@PE_StateMachine_VDMCable",
+    "CAD_StateMachine",
+    "USBPD_CAD_Process",
+    "PE_CallHardResetCallback",
+    "PE_CheckDataSizeFromGetDataInfo",
+    "PE_Check_DataMessage",
+    "PE_Check_DataMessageVDM",
+    "PE_Check_ExtendedMessage",
+    "PE_Clear_RxEvent",
+    "PE_Reset_ZI",
+    "PE_StateMachine_SNK_ReadyWait",
+    "PE_StateMachine_UVDM",
+    "PE_StateMachine_VDM",
+    "PE_StateMachine_VDMCable",
+    "PE_SubStateMachine_Generic",
+    "PE_SubStateMachine_ReceiveDRS",
+    "PE_SubStateMachine_VconnSwap",
+    "PORTx_IRQHandler",
+    "RADIO_PdPortPoll",
+    "USBPD_PE_Notification",
+    "USBPD_PE_Request_CtrlMessage",
+    "USBPD_PE_Request_DataMessage",
+    "USBPD_PE_StateMachine_SNK",
+    "USBPD_PRL_ResetRequestProcess",
+    ".text_44@PE_PRL_PostReceiveEventComplete",
+    "CAD_Enter_ErrorRecovery",
+    "PHY_Rx_Completed",
+    "PRL_ResetIndicate",
+    "PRL_Received"
+  ],
+  "reviewed_indirect_targets": {
+    "mod_tx_pipeline_process_frame": [
+      "render_cw",
+      "render_test_linear",
+      "render_tx_carrier_test",
+      "render_theta_debug",
+      "render_ssb_debug_internal",
+      "render_ssb_raw_legacy",
+      "render_ssb_prod",
+      "render_ssb_h12p",
+      "render_ssb_enh",
+      "render_ssb_filt",
+      "render_ssb_raw_direct",
+      "render_ssb_qmx12_strict",
+      "render_ssb_ext",
+      "render_fm",
+      "render_am"
+    ],
+    "USBD_AUDIO_DataOut": [
+      "AUDIO_PeriodicTC_FS"
+    ],
+    "USBD_AUDIO_Notify": [
+      "AUDIO_Notify_FS"
+    ],
+    "USBD_AUDIO_PrepareOut": [
+      "AUDIO_Notify_FS"
+    ],
+    "USBD_AUDIO_Init": [
+      "AUDIO_Init_FS"
+    ],
+    "USBD_AUDIO_DeInit": [
+      "AUDIO_DeInit_FS"
+    ],
+    "USBD_AUDIO_Setup": [
+      "AUDIO_VolumeCtl_FS",
+      "AUDIO_MuteCtl_FS",
+      "AUDIO_Notify_FS",
+      "RADIO_CapturePacket"
+    ],
+    "USBD_AUDIO_SOF": [
+      "AUDIO_GetFeedback10_14_FS",
+      "AUDIO_Notify_FS",
+      "RADIO_CapturePacket"
+    ],
+    "USBD_AUDIO_RefillCapture": [
+      "RADIO_CapturePacket"
+    ],
+    "USBD_AUDIO_SendFeedback": [
+      "AUDIO_Notify_FS"
+    ],
+    "USBD_SetClassConfig": [
+      "cat_class_init"
+    ],
+    "USBD_ClrClassConfig": [
+      "cat_class_deinit"
+    ],
+    "USBD_LL_DataInStage": [
+      "cat_class_data_in",
+      "cat_class_ep0_tx_sent"
+    ],
+    "USBD_LL_DataOutStage": [
+      "cat_class_data_out",
+      "cat_class_ep0_rx_ready"
+    ],
+    "USBD_LL_Reset": [
+      "cat_class_deinit"
+    ],
+    "USBD_LL_SOF": [
+      "cat_class_sof"
+    ],
+    "USBD_StdDevReq": [
+      "cat_class_setup",
+      "cat_class_config",
+      "cat_class_qualifier",
+      "USBD_AUDIO_DeviceDescriptor",
+      "USBD_AUDIO_LangIDStrDescriptor",
+      "USBD_AUDIO_ManufacturerStrDescriptor",
+      "USBD_AUDIO_ProductStrDescriptor",
+      "USBD_AUDIO_SerialStrDescriptor",
+      "USBD_AUDIO_ConfigStrDescriptor",
+      "USBD_AUDIO_InterfaceStrDescriptor"
+    ],
+    "USBD_StdItfReq": [
+      "cat_class_setup"
+    ],
+    "USBD_StdEPReq": [
+      "cat_class_setup"
+    ],
+    ".text_21@USBPD_PRL_SendMessage": [],
+    ".text_3@PE_StateMachine_VDMCable": [],
+    "CAD_StateMachine": [
+      "CAD_StateMachine_SNK"
+    ],
+    "USBPD_CAD_Process": [
+      "cad_event"
+    ],
+    "PE_CallHardResetCallback": [
+      "hard_reset"
+    ],
+    "PE_CheckDataSizeFromGetDataInfo": [],
+    "PE_Check_DataMessage": [
+      "get_data",
+      "set_data"
+    ],
+    "PE_Check_DataMessageVDM": [],
+    "PE_Check_ExtendedMessage": [
+      "set_data"
+    ],
+    "PE_Clear_RxEvent": [
+      "wake_port"
+    ],
+    "PE_Reset_ZI": [
+      "set_data"
+    ],
+    "PE_StateMachine_SNK_ReadyWait": [],
+    "PE_StateMachine_UVDM": [],
+    "PE_StateMachine_VDM": [],
+    "PE_StateMachine_VDMCable": [],
+    "PE_SubStateMachine_Generic": [
+      "get_data",
+      "set_data"
+    ],
+    "PE_SubStateMachine_ReceiveDRS": [
+      "reject"
+    ],
+    "PE_SubStateMachine_VconnSwap": [
+      "reject",
+      "reject_vconn"
+    ],
+    "PORTx_IRQHandler": [
+      "PRL_TxCompleted",
+      "PRL_BistCompleted",
+      "PRL_ResetIndicate",
+      "PHY_Rx_Completed",
+      "PRL_ResetCompleted",
+      "wake_cad"
+    ],
+    "RADIO_PdPortPoll": [],
+    "USBPD_PE_Notification": [
+      "notify_pd"
+    ],
+    "USBPD_PE_Request_CtrlMessage": [
+      "wake_port"
+    ],
+    "USBPD_PE_Request_DataMessage": [
+      "wake_port"
+    ],
+    "USBPD_PE_StateMachine_SNK": [
+      "get_data",
+      "set_data",
+      "evaluate",
+      "recovery",
+      "hard_reset",
+      "power_ready",
+      "reject"
+    ],
+    "USBPD_PRL_ResetRequestProcess": [],
+    ".text_44@PE_PRL_PostReceiveEventComplete": [
+      "wake_port"
+    ],
+    "CAD_Enter_ErrorRecovery": [
+      "wake_cad"
+    ],
+    "PHY_Rx_Completed": [
+      "PRL_Received",
+      "PRL_ResetIndicate"
+    ],
+    "PRL_ResetIndicate": [],
+    "PRL_Received": [],
+    "USBD_AUDIO_EP0_RxReady": [
+      "AUDIO_MuteCtl_FS"
+    ]
+  },
+  "complexity_baselines": {
+    "render_ssb_ext": 279,
+    "render_ssb_qmx12_strict": 246,
+    "render_ssb_prod": 211,
+    "render_ssb_h12p": 189,
+    "render_ssb_raw_direct": 210,
+    "render_ssb_filt": 202,
+    "render_ssb_enh": 201,
+    "UI_SDHandle": 166,
+    "render_ssb_raw_legacy": 147,
+    "UI_AppHandle": 133,
+    "render_ssb_debug_internal": 129,
+    "UI_SettingHelp": 125,
+    "UI_SDRender": 110,
+    "carrier_select_solution": 100,
+    "settings_blob_load_current": 99,
+    "UI_AppBuildFrame": 95,
+    "SD_AudioDecoderOpen": 93,
+    "UI_ClampSettingValue": 91,
+    "LCDUI_Service": 84,
+    "RADIO_Service": 68
+  },
+  "indirect_review_notes": {
+    "USBPD": "Mappings reviewed against ST callbacks, archive disassembly and REV1 settings. Empty sets: trace callback remains NULL, VDM/VCONN/role swaps are disabled, TCPP VBUS callback is never registered. USBPD_Callback struct pointers are installed only during init.",
+    "USBD": "Since v8.10 the audio personality registers USBD_AUDIO_CAT (usbd_cat.c): the core reaches its cat_class_* callbacks through pClass, and they call the USB audio class callbacks (USBD_AUDIO_*) directly or service the CAT ports in O(1)."
+  },
+  "stack_budget_note": "REV1 includes libm/ST archive allocations and reviewed indirect callbacks, previously omitted. 6 KiB linker stack is checked against foreground plus nested priority 2/1/0 IRQ chains and 104-byte Cortex-M4F frames.",
+  "stack_interrupt_priority_groups": [
+    [
+      "PendSV_Handler"
+    ],
+    [
+      "DMA1_Channel1_IRQHandler",
+      "DMA1_Channel3_IRQHandler",
+      "DMA1_Channel2_IRQHandler",
+      "DMA2_Channel1_IRQHandler",
+      "DMA2_Channel2_IRQHandler",
+      "DMA2_Channel3_IRQHandler",
+      "DMA2_Channel4_IRQHandler",
+      "USB_LP_IRQHandler",
+      "SysTick_Handler"
+    ],
+    [
+      "UCPD1_IRQHandler"
+    ]
+  ]
+}

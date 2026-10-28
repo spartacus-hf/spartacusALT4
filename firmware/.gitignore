@@ -1,0 +1,41 @@
+# Historical and editor backups
+*.bak
+/_archive/
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# Debug build products. Keep makefile, *.mk, and objects.list for CLI builds.
+/Debug/alt2.elf
+/Debug/alt2.map
+/Debug/alt2.list
+/Debug/alt2.bin
+/Debug/alt2.hex
+/Debug/st-link_gdbserver_log.txt
+/Debug/**/*.o
+/Debug/**/*.d
+/Debug/**/*.su
+/Debug/**/*.cyclo
+
+# Standalone USB recovery loader and packaged firmware outputs
+/Bootloader/*.o
+/Bootloader/*.elf
+/Bootloader/*.bin
+/Bootloader/*.map
+/dist/
+
+# Generated optimized build tree
+/Release-Speed/
+/Diagnostic/
+/Release/
+
+# Native validation harness products
+/tools/v628_transport_sim
+/tools/v629_tx_theta_check
+
+# tools/flash_rev1.py --factory: whole-flash backups (settings, calibration)
+/backups/
+
+# Radio bench results (tools/bench): JSON, generated audio, openocd log
+/tools/bench/results/

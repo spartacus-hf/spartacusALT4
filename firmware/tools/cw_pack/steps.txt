@@ -1,0 +1,44 @@
+# The course START LEARNING runs: one step a line. Each session starts at the
+# top again; what is already done skips itself, so the steps before MASTER
+# are the session's warm-up, and nothing here needs the knob.
+#   PADDLE              find the DIT lever, offer SWAP, squeeze, release (once)
+#   EXPLORE             hold DIT, hold DAH, squeeze; ends by itself (once)
+#   INTRO               each character this lesson adds: hear it three times,
+#                       key it three right in a row
+#   LISTEN n SRC [g]    n groups, each shown after it has played
+#   ECHO n SRC [g] [P]  n prompts to key back (0: no end); P is how they are
+#                       given: SOUND (default), TEXT (send what you see), BOTH
+#   MASTER SRC [g] [-> L]  echo until 90 % of the last 50 first tries are
+#                       right (and of the last 10 of the newest character, for
+#                       CHARS); then the next lesson and on at L, or, with the
+#                       whole course in, on to the next step. Passed once,
+#                       it skips itself
+#   SPEED n -> L        overall speed n WPM faster (never past the character
+#                       speed: Farnsworth gaps shrink) and the stages from L
+#                       again; at the character speed, on to the next step
+#   GOTO -> L
+#   :NAME               names the step after it
+#   @TXT_...            the card text (Core/Inc/card_text.def) the screen shows
+# SRC: CHARS, WORDS, ABBR, CALLS, MIXED, or DRILL (the lesson's newest
+# characters, each g times: CW Academy's daily sending drill); g: 1-8.
+#
+# What it follows: Koch (full character speed, start with two, one more at
+# 90 %), LICW (familiarity first, then recognition), CW Academy (a daily
+# sending drill, words as soon as the letters make some, then abbreviations
+# and call signs) and Morserino-32's adaptive draw for weak characters.
+PADDLE
+EXPLORE                           @TXT_TR_EXPLORE
+:LESSON
+INTRO                             @TXT_TR_LEARN
+LISTEN 5 CHARS 3                  @TXT_TR_C_FAMILIAR
+ECHO 4 DRILL 5 TEXT               @TXT_TR_C_DRILL
+ECHO 10 CHARS                     @TXT_TR_ECHO
+ECHO 5 WORDS                      @TXT_TR_C_WORDS
+MASTER CHARS -> LESSON            @TXT_TR_C_MASTER
+:STAGES
+MASTER CHARS 3                    @TXT_TR_C_GROUPS
+MASTER WORDS                      @TXT_TR_C_WORDS
+MASTER ABBR                       @TXT_TR_C_ABBR
+MASTER CALLS                      @TXT_TR_C_CALLS
+SPEED 1 -> STAGES
+ECHO 0 MIXED                      @TXT_TR_C_DONE

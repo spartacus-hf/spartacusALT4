@@ -1,0 +1,87 @@
+pin,gpio,label,signal,mode,af,role
+1,PE2,LPF_0,GPIO_Output,,,LPF 0 select; one-hot active high
+2,PE3,LPF_1,GPIO_Output,,,LPF 1 select; one-hot active high
+3,PE4,LPF_2,GPIO_Output,,,LPF 2 select; one-hot active high
+4,PE5,LPF_3,GPIO_Output,,,LPF 3 select; one-hot active high
+5,PE6,LPF_4,GPIO_Output,,,LPF 4 select; one-hot active high
+7,PC13,6,GPIO_Analog,,,Reserved / high impedance
+8,PC14,7,GPIO_Analog,,,Reserved / high impedance
+9,PC15,8,GPIO_Analog,,,Reserved / high impedance
+10,PF9,JP7-5,GPIO_Analog,,,Reserved / high impedance
+11,PF10,JP7-4,GPIO_Analog,,,Reserved / high impedance
+12,PF0,"(connected to TXCO output with 10 ohm resistor directly, TXCO is DSC1003DL2-008.0000T)",RCC_OSC_IN,HSE-External-Clock-Source,,8 MHz external oscillator; HSE bypass
+13,PF1,JP7-7,GPIO_Analog,,,Reserved / high impedance
+14,PG10,NRST,SYS_Reset,Reset,,NRST button SW13; preserve option bytes
+15,PC0,ADC_BIAS,GPIO_Analog,,,ADC2 IN6 bias
+16,PC1,ADC_FWD,GPIO_Analog,,,ADC2 IN7 forward detector
+17,PC2,ADC_REV,GPIO_Analog,,,ADC2 IN8 reflected detector
+18,PC3,ADC_5V,GPIO_Analog,,,ADC2 IN9 5 V rail /2
+19,PF2,JP7-6,GPIO_Analog,,,Reserved / high impedance
+20,PA0,HEADPHONE_L,TIM2_CH1,,1,Headphone L PWM ~295-380 kHz into NE5532 (no RC filter on PCB)
+21,PA1,HEADPHONE_R,TIM2_CH2,,1,Headphone R PWM ~295-380 kHz into NE5532 (no RC filter on PCB)
+22,PA2,MIC1,GPIO_Analog,,,ADC1 IN3 MIC1
+25,PA3,MIC2,GPIO_Analog,,,ADC1 IN4 MIC2
+26,PA4,SD_CS,GPIO_Output,,,SD chip select; inactive high
+27,PA5,SD_SCK,SPI1_SCK,,5,SD SCK
+28,PA6,SD_MISO,SPI1_MISO,,5,SD MISO
+29,PA7,SD_MOSI,SPI1_MOSI,,5,SD MOSI
+30,PC4,ADC_PA1,GPIO_Analog,,,ADC2 IN5 ENV A /5.7
+31,PC5,ADC_PA2,GPIO_Analog,,,ADC2 IN11 ENV B /5.7
+32,PB0,2,GPIO_Analog,,,Reserved / high impedance
+33,PB1,DAC_ENV1,GPIO_Analog,,,DAC3 CH2 internal -> OPAMP3 follower / ENV A
+34,PB2,ADC_VIN,GPIO_Analog,,,ADC2 IN12 VIN /5.7
+38,PE7,JP7-3,GPIO_Analog,,,Reserved / high impedance
+39,PE8,JP7-2,GPIO_Analog,,,Reserved / high impedance
+40,PE9,MIC3,GPIO_Analog,,,ADC3 IN2 MIC3
+41,PE10,LCD_RST,GPIO_Output,,,LCD reset; inactive high
+42,PE11,LCD_CS,GPIO_Output,,,LCD chip select; inactive high
+43,PE12,LCD_SCL,SPI4_SCK,,5,LCD SCK
+44,PE13,LCD_DC,GPIO_Output,,,LCD command/data
+45,PE14,LCD_SDA,SPI4_MOSI,,5,LCD MOSI
+46,PE15,JP7-1,GPIO_Analog,,,Reserved / high impedance
+47,PB10,MCU_PWR_HOLD,GPIO_Output,,,Power hold; high before C initialization
+50,PB11,DAC_ENV2,GPIO_Analog,,,DAC3 CH1 internal -> OPAMP6 follower / ENV B
+51,PB12,CLK0,GPIO_Output,,13,RX quadrature S1 / HRTIM C1; GPIO low until armed
+52,PB13,CLK1,GPIO_Output,,13,RX quadrature S0 / HRTIM C2; leads PB12 by 90 deg; GPIO low until armed
+53,PB14,TEST_CLK,GPIO_Output,,13,Calibration injection / HRTIM D1; GPIO low until armed
+54,PB15,3,GPIO_Analog,,,Reserved / high impedance
+55,PD8,AUX_TIP,GPIO_Output,,,AUX open-drain jack; MCU high pulls jack low
+56,PD9,AUX_RING2,GPIO_Output,,,AUX open-drain jack; MCU high pulls jack low
+57,PD10,AUX_RING1,GPIO_Output,,,AUX open-drain jack; MCU high pulls jack low
+58,PD11,NC,GPIO_Analog,,,Reserved / high impedance
+59,PD12,PWM_BIAS,TIM4_CH1,,2,PIN-diode bias buck 100-130 kHz PWM (harmonics kept off carrier); high = Q15 BSS84 on; 4 kHz loop; low = off
+60,PD13,NC,GPIO_Analog,,,Reserved / high impedance
+61,PD14,R148-1,GPIO_Analog,,,Reserved / high impedance; R148 0 ohm ties PD14 to PD15: never drive both
+62,PD15,R148-2,GPIO_Analog,,,Reserved / high impedance; R148 0 ohm ties PD15 to PD14: never drive both
+65,PC6,RF_EN,GPIO_Output,,,Branch B enable via Q7 BSS123: high = UCC27524 off / ACT541 on (idle+fault); low only while a UCC27524 branch is active
+66,PC7,RX_EN,GPIO_Output,,,RX enable; never simultaneous with TX
+67,PC8,BranchB1,GPIO_Output,,3,TX branch B1 / HRTIM E1; GPIO low until armed
+68,PC9,BranchB2,GPIO_Output,,3,TX branch B2 / HRTIM E2; GPIO low until armed
+69,PA8,BranchA1,GPIO_Output,,13,TX branch A1 / HRTIM A1; GPIO low until armed
+70,PA9,BranchA2,GPIO_Output,,13,TX branch A2 / HRTIM A2; GPIO low until armed
+71,PA10,1,GPIO_Analog,,,Reserved / high impedance; also UCPD1_DBCC2 (pull-down recommended while unused)
+72,PA11,USB_DN,USB_DM,Device,,USB data D- (self-powered U17)
+73,PA12,USB_DP,USB_DP,Device,,USB data D+ (self-powered U17)
+76,PA13,SWDIO,SYS_JTMS-SWDIO,Serial_Wire,,SWD recovery; preserved
+77,PA14,SWCLK,SYS_JTCK-SWCLK,Serial_Wire,,SWD recovery; preserved
+78,PA15,I2S_WS,I2S3_WS,,6,PCM1821 WS output
+79,PC10,RF_EN2,GPIO_Output,,,Branch A enable via Q30 BSS123: high = UCC27524 off / ACT541 on (idle+fault); low only while a UCC27524 branch is active
+80,PC11,4,GPIO_Analog,,,Reserved / high impedance
+81,PC12,5,GPIO_Analog,,,Reserved / high impedance
+82,PD0,BAND_0,GPIO_Output,,,RX BPF select bit 0
+83,PD1,BAND_1,GPIO_Output,,,RX BPF select bit 1
+84,PD2,SW_DOWN,GPIO_Input,,,No external pull; R93 GND common (active low; R92 open); polarity learned from first press
+85,PD3,SW_SELECT,GPIO_Input,,,No external pull; R93 GND common (active low; R92 open); polarity learned from first press
+86,PD4,SW_UP,GPIO_Input,,,No external pull; R93 GND common (active low; R92 open); polarity learned from first press
+87,PD5,SW_4,GPIO_Input,,,No external pull; R93 GND common (active low; R92 open); polarity learned from first press
+88,PD6,SW_5,GPIO_Input,,,No external pull; R93 GND common (active low; R92 open); polarity learned from first press
+89,PD7,JP19-8,GPIO_Analog,,,Reserved / high impedance
+90,PB3,I2S_CK,I2S3_CK,,6,PCM1821 BCLK output
+91,PB4,CC2_USB,GPIO_Analog,,,UCPD1 CC2; R3 5.1k external Rd for cold start (PD INTERNAL RD selects UCPD Rd if removed)
+92,PB5,"I2S3_SD I2S3 communication with PCM1821 ADC for the tayloe receiver, the circuit is a clone of qrplabs qmx only difference being PCM1821 and use of HRTIM as clock)",I2S3_SD,,6,PCM1821 serial input
+93,PB6,CC1_USB,GPIO_Analog,,,UCPD1 CC1; R4 5.1k external Rd for cold start (PD INTERNAL RD selects UCPD Rd if removed)
+94,PB7,STATUS_LED,GPIO_Output,,,Status LED
+95,PB8,PB8_BOOT,GPIO_Analog,,,BOOT0 button; preserve recovery function
+96,PB9,LCD_BL,TIM17_CH1,,1,LCD backlight PWM
+97,PE0,DIT,GPIO_Input,,,Active-low paddle; internal pull-up
+98,PE1,DAH,GPIO_Input,,,Active-low paddle; internal pull-up

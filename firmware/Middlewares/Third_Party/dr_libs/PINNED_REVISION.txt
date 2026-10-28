@@ -1,0 +1,10 @@
+dr_libs upstream: https://github.com/mackron/dr_libs
+Pinned commit: e1f125c1e03ba65e98dcbe54bab2b9b86d7ccd1a
+Pinned date: 2026-07-14
+
+The vendored single-header decoders are dr_wav.h, dr_mp3.h, and dr_flac.h.
+Each header contains its upstream public-domain or MIT-0 license notice.
+
+Embedded profile patch: dr_flac recognizes DR_FLAC_NO_SEEKTABLE. The decoder
+then uses its upstream binary/brute-force seek path instead of retaining a
+file-provided seek table in the fixed RAM arena.

@@ -1,0 +1,18 @@
+# Koch courses: the order characters are taught in, as Morserino-32 @73a766f
+# has them (MorsePreferences.h). Lower case is the character itself; upper
+# case K S N A E B are the prosigns <sk> <as> <kn> <ka> <ve> <bk>; + is <ar>
+# and = is <bt>. GPL-3.0, (C) Willi Kraml OE1WKL.
+#
+# LICW is taught as a carousel: tools/gen_cw_pack.py stores this base order
+# and the radio rotates it from the chosen entry point (Koch::setupLICWkochChars).
+#
+# The third column is where each course's lessons end, in characters: the
+# course START LEARNING runs moves on to the next of these by itself. Koch
+# (M32, LCWO) starts with two and adds one at a time; CW Academy takes its
+# Beginner sessions' groups (cwops.org Beginner curriculum: A E N T, then
+# O I S 1 4, ...); LICW three a lesson (BC1 18, BC2 the next 26). After the
+# list, +N: N more each lesson to the end.
+M32  mkrsuaptlowi.njef0yv,g5/q9zh38b?427c1d6x-=K+SNAEB@:  2+1
+LCWO kmuresnaptlwi.jz=foy,vg5/q92h38b?47c1d60x-K+ASNEB@:  2+1
+CWA  teanois14rhdl25ucmw36?fy,pgq79/bv+kj80=xzBK.-ASNE@:  4,9,15,17,22,25,31,34,39,44+1
+LICW reatinpgslcdhofuwbkmy59,qxv73?+K=16.zj/28B40-ASNE@:  3,6,9,12,15,18,21,24,27,30,33,36,39,42,44+1
