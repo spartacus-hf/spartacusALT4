@@ -153,3 +153,9 @@ The SPARTACUS-HF firmware is licensed under the
 permission to link ST's USB Device and USB-PD libraries, which ST licenses
 under SLA0044. Third-party components keep their own licences; see
 [NOTICE](NOTICE).
+
+The SPARTACUS-HF name and logos are not covered by these licences; see
+*Names and logos* in [NOTICE](NOTICE). The board this firmware runs on is open
+source hardware: the as-built REV1 design is tag
+[`rev1.0`](https://github.com/spartacus-hf/spartacus_PCB_REV1/tree/rev1.0) of
+the PCB repository, under CERN-OHL-S-2.0.

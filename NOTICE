@@ -90,6 +90,25 @@ firmware/sd/CWPACK.BIN
     CC BY-SA 4.0. See firmware/tools/cw_pack/README.md.
 
 
+Names and logos
+---------------
+
+The names "SPARTACUS-HF", "SPARTACUS" and "S-CTRL" and the SPARTACUS-HF
+logos and wordmarks, including docs/images/spartacus-hf-wordmark-banner.svg,
+identify the project. They are not licensed under the GPL or any other open
+licence in this repository. Factual use, such as saying that a derived work
+is based on SPARTACUS-HF, needs no permission. A modified firmware or board
+must not be presented as an official SPARTACUS-HF release.
+
+
+Open source hardware
+--------------------
+
+This firmware runs on the SPARTACUS-HF REV1 board. Its as-built design is
+tag rev1.0 of https://github.com/spartacus-hf/spartacus_PCB_REV1 under
+CERN-OHL-S-2.0.
+
+
 Project
 -------
 
